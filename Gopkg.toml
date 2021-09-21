@@ -25,22 +25,26 @@
 #   unused-packages = true
 
 
-[prune]
-  go-tests = true
-  unused-packages = true
-
 [[constraint]]
-  name = "github.com/labstack/echo"
-  version = "4.0.0"
-
-[[constraint]]
-  name = "github.com/tkanos/gonfig"
-  version = "1.0.0"
+  name = "github.com/dgrijalva/jwt-go"
+  version = "3.2.0"
 
 [[constraint]]
   name = "github.com/go-sql-driver/mysql"
   version = "1.6.0"
 
 [[constraint]]
+  name = "github.com/labstack/echo"
+  version = "3.3.10"
+
+[[constraint]]
+  name = "github.com/tkanos/gonfig"
+  version = "1.0.0"
+
+[[constraint]]
   branch = "master"
   name = "golang.org/x/crypto"
+
+[prune]
+  go-tests = true
+  unused-packages = true

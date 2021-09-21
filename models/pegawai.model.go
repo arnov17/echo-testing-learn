@@ -3,13 +3,15 @@ package models
 import (
 	"arnov17/echo-test/db"
 	"net/http"
+
+	validator "github.com/go-playground/validator/v10"
 )
 
 type Pegawai struct {
 	Id      int    `json:"id"`
-	Name    string `json:"name"`
-	Alamat  string `json:"alamat"`
-	Telepon string `json:"telepon"`
+	Name    string `json:"name" validate:"required"`
+	Alamat  string `json:"alamat" validate:"required"`
+	Telepon string `json:"telepon" validate:"required"`
 }
 
 func FetcAllPegawai() (Response, error) {
@@ -48,6 +50,20 @@ func FetcAllPegawai() (Response, error) {
 
 func StorePegawai(name string, alamat string, telepon string) (Response, error) {
 	var res Response
+
+	v := validator.New()
+
+	peg := Pegawai{
+		Name:    name,
+		Alamat:  alamat,
+		Telepon: telepon,
+	}
+
+	err := v.Struct(peg)
+	if err != nil {
+		return res, err
+	}
+
 	con := db.CreateCont()
 	sqlStatemnet := "INSERT pegawai (nama, alamat, telepon) VALUES (?, ?, ?)"
 

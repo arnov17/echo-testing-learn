@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:76dc72490af7174349349838f2fe118996381b31ea83243812a97e5a0fd5ed55"
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
+
+[[projects]]
   digest = "1:e3b25b60c5598d88c45b25d85a76816d0a81fc3fd46c00791136614c1183fc0b"
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
@@ -10,39 +18,44 @@
   version = "v1.6.0"
 
 [[projects]]
-  digest = "1:644defdb08056e981dc8b8142d6582740a8efb9152585e42930ee28989ae8d23"
+  digest = "1:efd601ad1d1189884f37ed075fadb5bbd17f1f5acf5862827247c6da56d125ba"
   name = "github.com/labstack/echo"
-  packages = ["."]
+  packages = [
+    ".",
+    "middleware",
+  ]
   pruneopts = "UT"
-  revision = "5b8fa6979f5803ff091e24c9a0331aa1b38de302"
-  version = "v4.5.0"
+  revision = "38772c686c76b501f94bd6cd5b77f5842e93b559"
+  version = "v3.3.10"
 
 [[projects]]
-  digest = "1:9bc108827ac1d8783dea294f1ef07732fa4ca7d6e20518c04888a85828eba4ce"
+  digest = "1:e8e65826d60fd82637fb9df06ecd651191b599f4a8f72b86362012f288778320"
   name = "github.com/labstack/gommon"
   packages = [
+    "bytes",
     "color",
     "log",
+    "random",
   ]
   pruneopts = "UT"
   revision = "4919956f6fb227b548f004da27c7c6b20fba499f"
   version = "v0.3.0"
 
 [[projects]]
-  digest = "1:304d25ecc3f4ca39f894c959254d3f5fc6176276ccf1f874ded0cd441e2f964f"
+  digest = "1:c47ff4eeca93ede4d5e576be6c143e0ff8f49008c3abbe6fc9ae2352fed58908"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = "UT"
-  revision = "2e1b0c1546e0173c0907cf05c67b8ba29ed8b4d1"
-  version = "v0.1.8"
+  revision = "a2827f0f3d3636497ded070ba236e9368504cf28"
+  version = "v0.1.9"
 
 [[projects]]
-  digest = "1:f0d049b77e8f5a23aa89750a9f0da6417dc3abf0b7f3f35a161c1c5eb9f926a4"
+  digest = "1:e66bb4fe1fb8b48e9bed410b198498cef8fa6701a5e3eb0ee7f07b74153a7fbc"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   pruneopts = "UT"
-  revision = "8b0c6d82fa8980f9bff874afff66860a0c3e9c5c"
-  version = "v0.0.13"
+  revision = "504425e14f742f1f517c4586048b49b37f829c8e"
+  version = "v0.0.14"
 
 [[projects]]
   digest = "1:dc48dff981a895912c33cf272b1d869c216d058bd4025736cb481d3ceeed6872"
@@ -70,7 +83,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:40250ee5a394f92daf4aa9cb0f8afe633d1b80cf61d3be9a02694e05eaf1079a"
+  digest = "1:810e66658e7a68e54e57268b08aa4331dde917a5676ab1d554a483c70529866a"
   name = "golang.org/x/crypto"
   packages = [
     "acme",
@@ -79,32 +92,26 @@
     "blowfish",
   ]
   pruneopts = "UT"
-  revision = "32db794688a5a24a23a43f2a984cecd5b3d8da58"
+  revision = "089bfa5675191fd96a44247682f76ebca03d7916"
 
 [[projects]]
   branch = "master"
-  digest = "1:da304c496189d5c65d3fea24ffb42250165a41fb328990b45ca709d25e48fc45"
+  digest = "1:ed9d08ac2933714a1c3e51737d0db0be1ddd060b87b890387558824857463f14"
   name = "golang.org/x/net"
-  packages = [
-    "http/httpguts",
-    "http2",
-    "http2/h2c",
-    "http2/hpack",
-    "idna",
-  ]
+  packages = ["idna"]
   pruneopts = "UT"
-  revision = "60bc85c4be6d32924bcfddb728394cb8713f2c78"
+  revision = "978cfadd31cf6299758dbb5165d451ce91989f1a"
 
 [[projects]]
   branch = "master"
-  digest = "1:1dee1e253d07602650871b285acd120e50ef2275fec50369c91000ef4c8fdfd9"
+  digest = "1:11ae3bd52aa5b93fa0b848dfd1bdda5563335c114aa084c012e11fc8a1018afa"
   name = "golang.org/x/sys"
   packages = [
     "internal/unsafeheader",
     "unix",
   ]
   pruneopts = "UT"
-  revision = "bfb29a6856f25972eca0eea345d74f3d9bdbc958"
+  revision = "437939a70204d143b964abe4ee5e6662d973a384"
 
 [[projects]]
   digest = "1:c9f99de7a59710d6160060a62e92e3c2899174af0b60cc8f4188eb98a5a0d1e6"
@@ -135,8 +142,10 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/dgrijalva/jwt-go",
     "github.com/go-sql-driver/mysql",
     "github.com/labstack/echo",
+    "github.com/labstack/echo/middleware",
     "github.com/tkanos/gonfig",
     "golang.org/x/crypto/bcrypt",
   ]
